@@ -21,7 +21,7 @@ export default function TabLayout() {
           paddingBottom: 5,
           paddingTop: 5,
           borderTopWidth: 0,
-          paddingHorizontal: 30
+          paddingHorizontal: 21
         }, // Dark slate background
   
         tabBarItemStyle: {
