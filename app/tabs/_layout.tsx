@@ -1,8 +1,11 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import FAB from "../../components/Button";
+import { Button } from 'react-native';
 
 export default function TabLayout() {
   return (
+    <>
     <Tabs
       screenOptions={{
         headerShown: false,
@@ -15,14 +18,16 @@ export default function TabLayout() {
           backgroundColor: '#263238', // Transparent effect
           borderRadius: 20,
           height: 65,
-          paddingBottom: 2,
+          paddingBottom: 5,
           paddingTop: 5,
           borderTopWidth: 0,
+          paddingHorizontal: 30
         }, // Dark slate background
   
         tabBarItemStyle: {
           justifyContent: 'center', // Center tab items
-          alignItems: 'center'
+          alignItems: 'center',
+          flex: 1,
         },
       }}
     >
@@ -45,14 +50,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="add"
-        options={{
-          tabBarIcon: ({color, focused}) => (
-            <Ionicons name={focused ? 'add': 'add-circle'} color={color} size={35}/>
-          )
-          //tabBarButton: (props) => <CustomFAB {...props} />,
-        }}
-      />
+          name="placeholder"
+          options={{
+            tabBarLabel: () => null,
+            tabBarIcon: () => null, // No icon, just spacing
+          }}
+        />
       <Tabs.Screen
         name="calender"
         options={{
@@ -72,33 +75,8 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    {/* Floating Action Button */}
+    <FAB onPress={() => console.log("FAB Pressed!")} />
+    </>
   );
 }
-/*
-function CustomFAB({ onPress }) {
-  return (
-    <TouchableOpacity
-      onPress={onPress}
-      activeOpacity={0.7}
-      style={{
-        position: "absolute",
-        bottom: 10,
-        alignSelf: "center",
-        backgroundColor: "#ffd33d",
-        width: 65,
-        height: 65,
-        borderRadius: 32.5,
-        justifyContent: "center",
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 5,
-      }}
-    >
-      <Ionicons name="add" size={30} color="#212832" />
-    </TouchableOpacity>
-  );
-}
-*/
